@@ -1,5 +1,7 @@
 package com.study.controller;
 
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,5 +23,18 @@ public class HomeController {
 		jsonArray.add(jsonObject2);
 		jsonObject.put("abc", jsonArray);
 		return jsonObject;
+	}
+	
+	@PostMapping("/sendJson")
+	public Object sendJson(@RequestBody String jsonStr) {
+		JSONObject fromObject = JSONObject.fromObject(jsonStr);
+		return fromObject;
+	}
+	
+	@PostMapping("/sendJsonWait")
+	public Object sendJsonWait(@RequestBody String jsonStr) throws InterruptedException {
+		JSONObject fromObject = JSONObject.fromObject(jsonStr);
+		//Thread.sleep(20*1000);
+		return fromObject;
 	}
 }

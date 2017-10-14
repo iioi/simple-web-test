@@ -29,4 +29,61 @@
 		</dependency>
 
 	</dependencies>
+
+	<build>
+		<plugins>
+			<!-- <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>lib/</classpathPrefix>
+							<mainClass>com.study.Application</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/lib</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin> -->
+
+			
+			<!-- <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                	<archiveBaseDirectory>${project.basedir}</archiveBaseDirectory>
+                    这部分可有可无,加上的话则直接生成可运行jar包
+                    <archive>
+                        <manifest>
+                            <mainClass>com.study.Application</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+            </plugin> -->
+            
+            <!-- 直接用spring boot的maven插件 -->
+            <plugin>
+            	<groupId>org.springframework.boot</groupId>
+            	<artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+		</plugins>
+	</build>
 </project>
